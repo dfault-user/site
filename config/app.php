@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Tadah'),
+    'name' => env('APP_NAME', 'Kapish'),
 
     /*
     |--------------------------------------------------------------------------
@@ -49,7 +49,7 @@ return [
     // RCC
     'rcc_ip' => env('RCC_IP', '127.0.0.1'),
     'rcc_port' => env('RCC_PORT', 64989),
-    'rcc_key' => env('RCC_KEY', '27bad0d7651f047f2324a6f75dbc86edc7500a115ef175e9e10b1051736ca7c6nigger'),
+    'rcc_key' => env('RCC_KEY', 'YourKeyHere'),
 
     // Forum settings
     'posting_enabled' => true,
@@ -67,8 +67,8 @@ return [
     'user_maximum_keys_in_window' => 2, // for ex. 3 keys every x days
     'user_invite_key_cooldown' => 15, // in days
 
-    'invite_keys_required' => true,
-    'registration_enabled' => true,
+    'invite_keys_required' => env('INVITE_KEYS_REQUIRED'),
+    'registration_enabled' => env('ENABLE_REGISTRATION'),
 
     // Currency settings
     'currency_name' => 'Dahllor',

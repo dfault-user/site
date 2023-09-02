@@ -12,9 +12,9 @@
             <h2>Games</h2>
             <p>Anything in-game; the chat, servers, and so on. {{ config('app.name') }} claims no responsibility for what happens inside of a server, and we do not log chats (and will never be logged by {{ config('app.name') }}.)</p>
             <ul>
-                <li><b>Server hosters are fully liable for anything that occurs on their server</b> which violates the Terms of Service, unless they can prove to a reasonable degree that an exploiter was present, who caused it</li>
-                <li><b>Griefing (destroying others work) in building games or other games which employ building mechanics is not allowed</b>, unless the server hoster explicitly allows it</li>
-                <li><b>Cheating, exploiting, or hacking is not allowed</b>, unless the server hoster explicitly allows it</li>
+                <li><b>Server hosters are fully liable for anything that occurs on their server</b> which violates the Terms of Service, unless they can prove to a reasonable degree that an exploiter was present, who caused it.</li>
+                <li><b>Griefing (destroying others work) in building games or other games which employ building mechanics is not allowed</b>, unless the server hoster explicitly allows it.</li>
+                <li><b>Cheating, exploiting, or hacking is not allowed</b>, unless the server hoster explicitly allows it.</li>
                 <li><b>We encourage you to respect others.</b> This is a video game.</li>
                 <li><b>You may not say slurs of any kind in a demeaning or derogatory way.</b></li>
                 <li><b>Do not post or say erotic, or otherwise NSFW content.</b> Be mature.</li>

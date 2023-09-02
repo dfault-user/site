@@ -12,6 +12,7 @@
                 <li><b>Stan</b> - Project lead</li>
                 <li><b>Anonymous</b> - Frontend, backend, design</li>
                 <li><b>cirroskais</b> - Server manager, arbiter developer</li>
+                <li><b>theodore</b> - Contributor, bug patcher</li>
             </ul>
             <h4>Special thanks</h4>
             <ul>

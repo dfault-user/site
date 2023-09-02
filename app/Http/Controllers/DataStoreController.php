@@ -17,7 +17,10 @@ class DataStoreController extends Controller
 
     function getAsync(Request $request)
     {
-        abort(403);
+        if ($request->giveMeAKey != config('app.rcc_key')) {
+            abort(403);
+        }
+
         // GetAsync
         // POST DATA:
         // &qkeys[0].scope=global&qkeys[0].target=KEY&qkeys[0].key=DATASTORE
@@ -88,13 +91,15 @@ class DataStoreController extends Controller
 
     function setAsync(Request $request)
     {
-        abort(403);
         // SetAsync
         // POST DATA:
         // value=%22KEYVALUE%22
         // /persistence/set?placeId=1&key=DATASTORE&&type=standard&scope=global&target=KEY&valueLength=VALUELENGTH
 
         // thankfully this is less shit to parse
+        if ($request->giveMeAKey != config('app.rcc_key')) {
+            abort(403);
+        }
         $postData = $request->getContent();
         $values = json_decode(urldecode(substr($postData, strpos($postData, '=') + 1)));
 

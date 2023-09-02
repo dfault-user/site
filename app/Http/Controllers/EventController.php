@@ -11,7 +11,7 @@ class EventController extends Controller
 {
     const WHITELISTED_IDS = [1]; // Item IDs for event
     const MAX_MONEY_PER_REQUEST = 250;
-    const TICKET = "thtjthfjjdhgrdteghtegwtegwthrhryywjkhjtkjthtkhjtujetujye";
+    const TICKET = "YourTicketHere";
     const ENABLED = false;
 
     private function is_awardable($item_id) : bool
