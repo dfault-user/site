@@ -20,7 +20,11 @@
                                 </div>
                             @endif
 
-                            <p class="text-center"><i class="text-primary fas fa-info-circle mr-1"></i>{{ __('Uploading an asset costs') }} <strong>{{ config('app.asset_upload_cost') }} {{ config('app.currency_name_multiple') }}.</strong></p>
+                            @if (config('app.asset_upload_cost') != 1)
+                                <p class="text-center"><i class="text-primary fas fa-info-circle mr-1"></i>{{ __('Uploading an asset costs') }} <strong>{{ config('app.asset_upload_cost') }} {{ config('app.currency_name_multiple') }}.</strong></p>
+                            @else
+                                <p class="text-center"><i class="text-primary fas fa-info-circle mr-1"></i>{{ __('Uploading an asset costs') }} <strong>{{ config('app.asset_upload_cost') }} {{ config('app.currency_name') }}.</strong></p>
+                            @endif
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Item Name') }}</label>
