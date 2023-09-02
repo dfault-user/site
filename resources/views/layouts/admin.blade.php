@@ -91,7 +91,7 @@
                         @admin
                         <li class="nav-item mr-1">
                             <a class="nav-link" href="{{ route('admin.index') }}">
-                                {{ __('Admin') }}
+                                <i class="fas fa-hammer mr-1"></i>{{ __('Admin') }}
                                 @php ($unapproved = \App\Models\Item::where('approved', 0)->count()) @endphp
                                 @if($unapproved > 0)
                                 <span class="badge badge-light badge-pill ml-1">
@@ -235,26 +235,26 @@
                             <img style="opacity: .3;" alt="{{ config('app.name') }}" src="{{ asset('images/logos/footer_full.png') }}" height="80" class="d-flex justify-content-center">
                         </div>
                         <div class="py-md-0 py-3 col-md col-auto text-md-start text-start footer-text text-light align-self-center">
-                            <b>©</b> {{ \Carbon\Carbon::now()->year }} {{ config('app.name') }}. {{ config('app.name') }} is a not-for-profit private community. Tadah is not a part of any corporation.<br> Built with <i class="font-weight-bold mx-1 fa fa-heart"></i> and <i class="font-weight-bold mx-1 fab fa-laravel"></i> Laravel
+                            <b>©</b> {{ \Carbon\Carbon::now()->year }} {{ config('app.name') }}. {{ config('app.name') }} is a not-for-profit private community. {{ config('app.name') }} is not a part of any corporation.<br> Built with <i class="font-weight-bold mx-1 fa fa-heart"></i> and <i class="font-weight-bold mx-1 fab fa-laravel"></i> Laravel
                         </div>
                         <div class="col-auto row align-self-center text-md-start text-center">
                             <div class="d-inline-flex col-auto justify-content-center">
-                                <a class="d-flex text-decoration-none text-white social-footer-link" href="https://discord.gg/kapish">
+                                <a class="d-flex text-decoration-none text-white social-footer-link" href="https://discord.gg/QdmkP5e5jz">
                                     <i class="fab fa-2x fa-discord mr-1"></i>
                                 </a>
                             </div>
-                            <div class="d-inline-flex col-auto justify-content-center">
-                                <a class="d-flex text-decoration-none text-white social-footer-link" href="https://twitter.com/TadahCommunity">
+                            <!-- <div class="d-inline-flex col-auto justify-content-center">
+                                <a class="d-flex text-decoration-none text-white social-footer-link" href="https://twitter.com/">
                                     <i class="fab fa-2x fa-twitter mr-1"></i>
                                 </a>
                             </div>
                             <div class="d-inline-flex col-auto justify-content-center">
-                                <a class="d-flex text-decoration-none text-white social-footer-link" href="https://www.youtube.com/channel/UCI6HZETsKzq_PWzhBrmY49Q">
+                                <a class="d-flex text-decoration-none text-white social-footer-link" href="https://www.youtube.com/channel/">
                                     <i class="fab fa-2x fa-youtube mr-1"></i>
                                 </a>
-                            </div>
+                            </div> -->
                             <div class="d-inline-flex col-auto justify-content-center">
-                                <a class="d-flex text-decoration-none text-white social-footer-link text-white social-footer-link" href="https://github.com/tadah-dev">
+                                <a class="d-flex text-decoration-none text-white social-footer-link text-white social-footer-link" href="https://github.com/Kapish-fun">
                                     <i class="fab fa-2x fa-github mr-1"></i>
                                 </a>
                             </div>
