@@ -915,7 +915,7 @@ public function download2016c(Request $request)
             $time = strval(time());
             $joinscript = [
                 'ClientPort' => 0,
-                'MachineAddress' => $_SERVER['SERVER_ADDR'],
+                'MachineAddress' => env("RCC_IP"),
                 'ServerPort' => intval($port),
                 'PingUrl' => 'http://api.kapish.fun/ping',
                 'PingInterval' => 120,
