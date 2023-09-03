@@ -17,4 +17,4 @@ use App\Http\Controllers;
 
 Route::get('/thumbnail', [Controllers\CdnController::class, 'thumbnail']);
 Route::get('/render', [Controllers\CdnController::class, 'render']);
-Route::get('/ownership/hasasset/', [App\Http\Controllers\ClientController::class, 'getAssetOwnership']);
+Route::get('/ownership/hasAsset/', [App\Http\Controllers\ClientController::class, 'getAssetOwnership']);
