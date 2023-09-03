@@ -495,7 +495,7 @@ public function download2016c(Request $request)
 
         return 'OK';
     }
-
+    
 
     public function getuserthumbnail(Request $request)
     {

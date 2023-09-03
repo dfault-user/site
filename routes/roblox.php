@@ -22,3 +22,7 @@ Route::domain(sprintf('versioncompatibility.%s', config('app.hostname')))->group
     Route::get('/GetAllowedSecurityVersions/', [Controllers\ClientController::class, 'security']);
     Route::get('/GetAllowedSecurityKeys/', [Controllers\ClientController::class, 'security2']);
 });
+
+Route::domain(sprintf('data.%s', config('app.hostname')))->group(function() {
+    Route::any('/Error/Dmp.ashx', function () { return '200'; });
+});
