@@ -1448,7 +1448,7 @@ public function jointest(Request $request) {
     {
         $result = json_encode(
             array(
-                "robux" => 0,
+                "robux" => $request->user()->money,
                 "tickets" => 0
             )
         );
