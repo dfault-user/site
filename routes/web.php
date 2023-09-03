@@ -230,7 +230,7 @@ Route::get('/IDE/ClientToolbox.aspx', [App\Http\Controllers\ClientController::cl
 Route::get('/IDE/Landing.aspx', function () { return view('client.landing'); });
 Route::get('/ide/welcome', function () { return '<h1>Tadah Studio</h1>'; });
 Route::get('/IDE/Upload.aspx', function () { return 'Soon.'; });
-Route::get('/thumbs/avatar.ashx', [App\Http\Controllers\ClientController::class, 'getuserthumbnail'])->name('client.userthumbnail');
+Route::get('/Thumbs/Avatar.ashx', [App\Http\Controllers\ClientController::class, 'getuserthumbnail'])->name('client.userthumbnail');
 Route::get('/thumbs/asset.ashx', [App\Http\Controllers\ClientController::class, 'getitemthumbnail'])->name('client.itemthumbnail');
 Route::get('/game/newhost/{secret}', [App\Http\Controllers\ClientController::class, 'newhost'])->name('client.newhost');
 Route::get('/server/host/{secret}', [App\Http\Controllers\ClientController::class, 'host'])->name('client.host');
