@@ -137,7 +137,7 @@ class ServersController extends Controller
             "stan",
             "dew",
             "worker",
-            "kinery"
+            "kinery",
             "quato",
             "[ Content Deleted 1 ]",
             "jttttsound",
