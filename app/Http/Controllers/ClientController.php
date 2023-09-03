@@ -1571,6 +1571,7 @@ function getProductInfo(Request $request) {
             "MinimumMembershipLevel" => 0,
             "ContentRatingType" => 0
         );
+        return json_encode($result);
     }
     $server = Server::where('id', $assetId)->first();
     $creator = User::where('id', $server->creator)->first();
