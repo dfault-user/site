@@ -256,6 +256,7 @@ Route::get('/Friend/CreateFriend', [Controllers\UsersController::class, 'createF
 Route::get('/user/get-friendship-count', [Controllers\UsersController::class, 'friendshipCount'])->name('friends.friendshipCount')->middleware('roblox');
 Route::get('/Game/ChatFilter.ashx', function () { return 'True'; })->middleware('roblox');
 Route::get('/Game/report-stats', [Controllers\ClientController::class, 'reportStats'])->name('client.reportStats');
+Route::get('/currency/balance', [App\Http\Controllers\ClientController::class, 'getBalance']);
 
 Route::any('/Error/Dmp.ashx', function () { return 'OK'; });
 Route::any('/Error/Grid.ashx', function () { return 'OK'; });

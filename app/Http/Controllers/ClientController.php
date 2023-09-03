@@ -1443,7 +1443,11 @@ public function jointest(Request $request) {
     {
 	return response()->json(['ChatFilter' => 'whitelist']);
     }
-
+    function getBalanceApiVersion(Request $request) 
+    {
+        return redirect()->route('getVersion');
+    }
+    
     function getBalance(Request $request)
     {
         $result = json_encode(
