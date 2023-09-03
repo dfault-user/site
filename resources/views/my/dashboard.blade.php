@@ -11,7 +11,7 @@
                 <img class="shadow-sm position-relative img-fluid rounded-circle border headshot-bg" style="max-height: 10rem" data-tadah-thumbnail-type="user-headshot" data-tadah-thumbnail-id="{{ Auth::user()->id }}" src="{{ $thumbnail::static_image('blank.png') }}">                    
             </div>
             <div class="d-inline-block py-2 py-md-0 align-middle">
-                <h2 class="font-weight-bold d-block d-md-inline-block text-center text-md-left px-3">Ahoy, {{ Auth::user()->username }}!</h2>
+                <h2 class="font-weight-bold d-block d-md-inline-block text-center text-md-left px-3">Hello, {{ Auth::user()->username }}!</h2>
             </div>
         </div>
     </div>
