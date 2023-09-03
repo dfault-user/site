@@ -1539,7 +1539,7 @@ function getProductInfo(Request $request) {
     if (!is_int($assetId)) {
         abort(400);
     }
-    if ($mps) {
+    if ($mps == true) {
         $item = Item::where('id', $assetId)->first();
         $creator = User::where('id', $item->creator)->first();
         
