@@ -30,7 +30,7 @@ class DailyMoneyMiddleware
             elseif (Auth::user()->donator)
                 $reward = abs(floor(config('app.daily_reward') * 1.5));
             elseif (Auth::user()->booster && !Auth::user()->donator)
-                $reward = abs(floor(config('app.daily_reward') * 1.2));
+                $reward = abs(floor(config('app.daily_reward') * 1.6));
             else
                 $reward = abs(floor(config('app.daily_reward')));
 
