@@ -26,7 +26,7 @@
 									<button data-toggle="modal" data-target="#resellModal" class="dropdown-item" type="submit"><i class="far fa-coin mr-1"></i>Resell</button>
 									@endif
 									
-									@if(Auth::user()->id == $item->user->id || Auth::user()->admin)
+									@if(Auth::user()->id == $item->user->id && $item->type != “Hat” || Auth::user()->admin)
 									<a class="dropdown-item" href="{{ route('item.configure', $item->id) }}"><i class="fas fa-cog mr-1"></i>Configure</a>
                                     <button data-toggle="modal" data-target="#deleteModal" class="dropdown-item" style="color: red;" type="submit"><i class="far fa-trash-alt mr-1"></i>Delete</button>
 									@endif
