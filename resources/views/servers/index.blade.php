@@ -31,9 +31,7 @@
 
     <hr>
 
-	<div class="alert alert-danger">
-		<i class="fas fa-exclamation-triangle"></i> <b>Please note that IP addresses are exposed to server hosts when you connect.</b> Please use a VPN and be safe! This applies vice versa to server hosts.
-	</div>
+
 
     @if ($servers->count() > 0)
 		<div class="row col-xs-12">
