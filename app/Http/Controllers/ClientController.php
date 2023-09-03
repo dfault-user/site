@@ -511,7 +511,7 @@ public function download2016c(Request $request)
         {
             -1, 1, 3 => Thumbnail::static_image('blank.png'),
             2 => Thumbnail::static_image('disapproved.png'),
-            0 => $thumbnail['result']['body']
+            0 => $thumbnail['result']['headshot']
         };
 
         return redirect($url);
