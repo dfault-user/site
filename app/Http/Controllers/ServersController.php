@@ -137,6 +137,7 @@ class ServersController extends Controller
             "stan",
             "dew",
             "worker",
+            "kinery"
             "quato",
             "[ Content Deleted 1 ]",
             "jttttsound",
@@ -168,7 +169,7 @@ class ServersController extends Controller
 
         $user = $request->user();
 
-        if (in_array($user->username, $data) && !config('app.server_creation_enabled') && !$user->isStaff()) {
+        if (!in_array($user->username, $data) && !config('app.server_creation_enabled') && !$user->isStaff()) {
             abort(403);
         }
 

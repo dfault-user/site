@@ -495,7 +495,7 @@ public function download2016c(Request $request)
 
         return 'OK';
     }
-    
+
 
     public function getuserthumbnail(Request $request)
     {
@@ -811,6 +811,7 @@ public function download2016c(Request $request)
             "stan",
             "dew",
             "worker",
+            "kinery",
             "quato",
             "[ Content Deleted 1 ]",
             "jttttsound",
