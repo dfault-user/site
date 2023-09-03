@@ -938,7 +938,7 @@ public function download2016c(Request $request)
                 'CookieStoreFirstTimePlayKey' => 'rbx_evt_ftp',
                 'CookieStoreFiveMinutePlayKey' => 'rbx_evt_fmp',
                 'CookieStoreEnabled' => true,
-                'IsRobloxPlace' => true, // $request->trust ?? -- what the hell does this mean
+                'IsRobloxPlace' => false, // $request->trust ?? -- what the hell does this mean
                 'GenerateTeleportJoin' => false,
                 'InUnknownOrUnder13' => false,
                 'SessionId' => Str::uuid()->toString() . '|' . Str::uuid()->toString() . '|0|' . $request->ip ?? 'localhost' . '|0|2022-01-01T24:00:00.0000000Z|0|null|null|0|0|0',
