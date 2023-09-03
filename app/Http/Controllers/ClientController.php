@@ -511,7 +511,7 @@ public function download2016c(Request $request)
         {
             -1, 1, 3 => Thumbnail::static_image('blank.png'),
             2 => Thumbnail::static_image('disapproved.png'),
-            0 => $thumbnail['result']['body']
+            0 => $thumbnail['result']['headshot']
         };
 
         return redirect($url);
@@ -811,6 +811,7 @@ public function download2016c(Request $request)
             "stan",
             "dew",
             "worker",
+            "kinery",
             "quato",
             "[ Content Deleted 1 ]",
             "jttttsound",
@@ -821,8 +822,23 @@ public function download2016c(Request $request)
             "Leviathan",
             "carlos",
             "donatelo071",
-            "Anthony"
+            "Anthony",
+            "m1neep",
+            "j4x",
+            "dudebloke",
+            "simul",
+            "foid",
+            "ezra",
+            "Phil564",
+            "rubenjashere",
+            "brandan",
+            "emma",
+            "[ Content Deleted 2 ]",
+            "poro01192008",
+            "Iaying",
+            "admin"
         );
+        
         $token = GameToken::where('token', $requestToken)->first();
 
         if (!$token) {
@@ -917,7 +933,7 @@ public function download2016c(Request $request)
                 'ClientPort' => 0,
                 'MachineAddress' => env("RCC_IP"),
                 'ServerPort' => intval($port),
-                'PingUrl' => 'http://api.kapish.fun/ping',
+                'PingUrl' => 'http://kapish.fun/pinger',
                 'PingInterval' => 120,
                 'UserName' => $token->user->username,
                 'SeleniumTestMode' => false,
@@ -926,7 +942,7 @@ public function download2016c(Request $request)
                 'ClientTicket' => $time.";".$this->Sign($token->user->id."\n".$token->user->username."\n".'https://kapish.fun/Asset/CharacterFetch.ashx?userId='.$token->user->id."\n".$token->server->id."\n".$time, true).";".$this->Sign($token->user->id."\n".$token->server->id."\n".$time, true),
                 'GameId' => Str::uuid()->toString(),
                 'PlaceId' => intval($token->server->id),
-                'BaseUrl' => 'http://www.tadah.rocks/',
+                'BaseUrl' => 'http://www.kapish.fun/',
                 'ChatStyle' => $ChatType[$token->server->chat_type],
                 'VendorId' => 0,
                 'ScreenshotInfo' => '',
@@ -938,7 +954,7 @@ public function download2016c(Request $request)
                 'CookieStoreFirstTimePlayKey' => 'rbx_evt_ftp',
                 'CookieStoreFiveMinutePlayKey' => 'rbx_evt_fmp',
                 'CookieStoreEnabled' => true,
-                'IsRobloxPlace' => true, // $request->trust ?? -- what the hell does this mean
+                'IsRobloxPlace' => false, // $request->trust ?? -- what the hell does this mean
                 'GenerateTeleportJoin' => false,
                 'InUnknownOrUnder13' => false,
                 'SessionId' => Str::uuid()->toString() . '|' . Str::uuid()->toString() . '|0|' . $request->ip ?? 'localhost' . '|0|2022-01-01T24:00:00.0000000Z|0|null|null|0|0|0',
@@ -1183,7 +1199,7 @@ public function jointest(Request $request) {
     public function md5(Request $request) {
     $data = [
         "data" => [
-	        "8e4b34f41bb390bd9cda3c5c8282f3f0"
+	        "1e8295f93358060d5600be7b41050f2e"
         ]
     ];
 
@@ -1518,13 +1534,45 @@ public function jointest(Request $request) {
     }
 
 function getProductInfo(Request $request) {
-        $assetId = (int)$request->assetId;
-
-
+    $assetId = (int)$request->assetId;
+    $mps = $request->mps;
     if (!is_int($assetId)) {
         abort(400);
     }
-
+    if ($mps == true) {
+        $item = Item::where('id', $assetId)->first();
+        $creator = User::where('id', $item->creator)->first();
+        
+        $result = array(
+            "TargetId" => 0,
+            "ProductType" => null,
+            "AssetId" => $assetId,
+            "ProductId" => $assetId,
+            "Name" => htmlspecialchars($item->name),
+            "Description" => htmlspecialchars($item->description),
+            "Creator" => array(
+                "Id" => $creator->id,
+                "Name" => htmlspecialchars($creator->username),
+                "CreatorType" => "User",
+                "CreatorTargetId" => 1
+            ),
+            "IconImageAssetId" => "https://cdn.kapish.fun/" . $item->id,
+            "Created" => "",
+            "Updated" => "",
+            "PriceInRobux" => $item->price,
+            "PriceInTickets" => 0,
+            "Sales" => $item->sales,
+            "IsNew" => false,
+            "IsForSale" => ($item->onsale == 1) ? true : false,
+            "IsPublicDomain" => false,
+            "IsLimited" => ($item->is_limited == 1) ? true : false,
+            "IsLimitedUnique" => ($item->is_limitedu == 1) ? true : false,
+            "Remaining" => ($item->stock_circulating == 0) ? null : $item->stock_circulating,
+            "MinimumMembershipLevel" => 0,
+            "ContentRatingType" => 0
+        );
+        return json_encode($result);
+    }
     $server = Server::where('id', $assetId)->first();
     $creator = User::where('id', $server->creator)->first();
 

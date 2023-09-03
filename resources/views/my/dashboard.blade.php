@@ -74,7 +74,7 @@
                                         @if (Cache::has('server_online' . $server->id))
                                             <span class="badge badge-pill badge-success text-small"><i style="font-size: 50%" class="fas fa-circle align-middle mr-1"></i><b>Online ({{ sizeof(Cache::get('server_online' . $server->id, 0)) }}/{{ $server->maxplayers }})</b></span>
                                         @else
-                                            <span class="badge badge-pill badge-secondary text-small"><i style="font-size: 50%" class="fas fa-circle align-middle mr-1"></i>Offline</span>
+                                            
                                         @endif									
                                     </div>
                                 </div>

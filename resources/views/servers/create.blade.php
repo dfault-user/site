@@ -10,32 +10,47 @@
                 <div class="card-header">{{ __('Create Server') }}</div>
                 <div class="card-body">
 @php
-    $data = array(
-        "gyro",
-        "wncw",
-        "goom",
-        "sudoapt",
-        "pinzit",
-        "credit",
-        "theodore",
-        "para",
-        "brie",
-        "sza",
-        "stan",
-        "dew",
-        "worker",
-        "quato",
-        "[ Content Deleted 1 ]",
-        "jttttsound",
-        "Facbook",
-        "punch",
-        "helen",
-        "rubenjashere",
-        "Leviathan",
-        "carlos",
-        "donatelo071",
-        "Anthony"
-    );
+$data = array(
+    "gyro",
+    "wncw",
+    "goom",
+    "sudoapt",
+    "pinzit",
+    "credit",
+    "theodore",
+    "para",
+    "brie",
+    "sza",
+    "stan",
+    "dew",
+    "worker",
+    "quato",
+    "[ Content Deleted 1 ]",
+    "jttttsound",
+    "Facbook",
+    "punch",
+    "helen",
+    "rubenjashere",
+    "Leviathan",
+    "carlos",
+    "donatelo071",
+    "Anthony",
+    "m1neep",
+    "j4x",
+    "dudebloke",
+    "simul",
+    "foid",
+    "ezra",
+    "Phil564",
+    "rubenjashere",
+    "brandan",
+    "emma",
+    "[ Content Deleted 2 ]",
+    "poro01192008",
+    "Iaying",
+    "admin"
+);
+
 @endphp
 
                     @if (config('app.server_creation_enabled') || Auth::user()->admin == 1 || in_array(Auth::user()->username, $data))
