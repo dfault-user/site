@@ -72,7 +72,7 @@
                         @elseif ($server->version == "2016" && $server->user->username == "stan")
                         <span class="badge badge-pill badge-success"><i style="font-size: 50%" class="fas fa-circle align-middle mr-1"></i><b>Always Online</b></span>
                         @else
-                        <span class="badge badge-pill badge-secondary"><i style="font-size: 50%" class="fas fa-circle align-middle mr-1"></i><b>Offline</b></span>
+                        <span class="badge badge-pill badge-success"><i style="font-size: 50%" class="fas fa-circle align-middle mr-1"></i><b>Always Online</b></span>
                         @endif
                         <span class="badge badge-pill badge-secondary"><b>{{$server->version}}</b></span>
                         @if (\App\Models\User::find($server->creator)->verified_hoster)
