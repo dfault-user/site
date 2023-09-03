@@ -1535,12 +1535,43 @@ public function jointest(Request $request) {
 
 function getProductInfo(Request $request) {
         $assetId = (int)$request->assetId;
-
-
+    $mps = $request->mps
     if (!is_int($assetId)) {
         abort(400);
     }
-
+    if ($mps) {
+        $item = Item::where('id', $assetId)->first();
+        $creator = User::where('id', $item->creator)->first();
+        
+        $result = array(
+            "TargetId" => 0,
+            "ProductType" => null,
+            "AssetId" => $assetId,
+            "ProductId" => $assetId,
+            "Name" => htmlspecialchars($item->name),
+            "Description" => htmlspecialchars($item->description),
+            "Creator" => array(
+                "Id" => $creator->id,
+                "Name" => htmlspecialchars($creator->username),
+                "CreatorType" => "User",
+                "CreatorTargetId" => 1
+            ),
+            "IconImageAssetId" => "https://cdn.kapish.fun/" . $item->id,
+            "Created" => "",
+            "Updated" => "",
+            "PriceInRobux" => $item->price,
+            "PriceInTickets" => 0,
+            "Sales" => $item->sales,
+            "IsNew" => false,
+            "IsForSale" => ($item->onsale == 1) ? true : false,
+            "IsPublicDomain" => false,
+            "IsLimited" => ($item->is_limited == 1) ? true : false,
+            "IsLimitedUnique" => ($item->is_limitedu == 1) ? true : false,
+            "Remaining" => ($item->stock_circulating == 0) ? null : $item->stock_circulating,
+            "MinimumMembershipLevel" => 0,
+            "ContentRatingType" => 0
+        );
+    }
     $server = Server::where('id', $assetId)->first();
     $creator = User::where('id', $server->creator)->first();
 
