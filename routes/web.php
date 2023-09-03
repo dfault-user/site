@@ -243,7 +243,7 @@ Route::get('/negotiate', [App\Http\Controllers\ClientController::class, 'negotia
 // 2016 routes requested by jackd, currently static, possibly make non-static later
 Route::get('/currency/balance', [App\Http\Controllers\ClientController::class, 'getBalance']);
 Route::any('//game/players/{id}', [App\Http\Controllers\ClientController::class, 'getChatFilter'])->name('client.getChatFilter');
-Route::get('/ownership/hasasset/{assetid}/{userid}', [App\Http\Controllers\ClientController::class, 'getAssetOwnership']);
+Route::get('/ownership/hasasset/', [App\Http\Controllers\ClientController::class, 'getAssetOwnership']);
 Route::any('/moderation/filtertext', [App\Http\Controllers\ClientController::class, 'getFilteredText'])->name('client.getFilteredText');
 Route::post('/Universes/validate-place-join', [App\Http\Controllers\ClientController::class, 'validatePlaceJoin']);
 Route::get('/v1.1/avatar-fetch/{id}', [App\Http\Controllers\ClientController::class, 'charapp']);

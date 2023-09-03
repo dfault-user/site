@@ -1456,12 +1456,19 @@ public function jointest(Request $request) {
         return $result;
     }
 
-    function getAssetOwnership(Request $request, $assetId, $userId)
+    function getAssetOwnership(Request $request)
     {
-        // TODO: MAKE NOT STATIC
-
-        return "false";
+        $userId = $request->input('userid');
+        $assetId = $request->input('assetId');
+    
+        $ownership = DB::table('owned_items')
+            ->where('user_id', number_format($userId))
+            ->where('item_id', number_format($assetId))
+            ->exists();
+    
+        return $ownership ? "true" : "false";
     }
+    
 
     function getFilteredText(Request $request)
     {
