@@ -1445,7 +1445,7 @@ public function jointest(Request $request) {
     }
     function getBalanceApiVersion(Request $request) 
     {
-        return redirect('https://kapish.fun/currency/getVersion');
+        return redirect('https://kapish.fun/currency/getbalance');
     }
     
     function getBalance(Request $request)
