@@ -1198,7 +1198,7 @@ public function jointest(Request $request) {
     public function md5(Request $request) {
     $data = [
         "data" => [
-	        "7db714af901a8b20dbda2e76a9ad17eb"
+	        "1e8295f93358060d5600be7b41050f2e"
         ]
     ];
 
