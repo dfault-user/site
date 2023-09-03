@@ -1534,8 +1534,8 @@ public function jointest(Request $request) {
     }
 
 function getProductInfo(Request $request) {
-        $assetId = (int)$request->assetId;
-    $mps = $request->mps
+    $assetId = (int)$request->assetId;
+    $mps = $request->mps;
     if (!is_int($assetId)) {
         abort(400);
     }
