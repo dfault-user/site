@@ -67,8 +67,8 @@
                                 {{$server->user->username}}
                             </a>
                         </h5>
-                        @if (Cache::has('server_online' . $server->id))
-                        <span class="badge badge-pill badge-success"><i style="font-size: 50%" class="fas fa-circle align-middle mr-1"></i><b>Online ({{ sizeof(Cache::get('server_online' . $server->id, 0)) }}/{{ $server->maxplayers }})</b></span>
+                        @if (Cache::has('server_online' . $server->id) && $server->version == "2016")
+                        <span class="badge badge-pill badge-success"><i style="font-size: 50%" class="fas fa-circle align-middle mr-1"></i><b>Always Online ({{ sizeof(Cache::get('server_online' . $server->id, 0)) }}/{{ $server->maxplayers }})</b></span>
                         @elseif ($server->version == "2016" && $server->user->username == "stan")
                         <span class="badge badge-pill badge-success"><i style="font-size: 50%" class="fas fa-circle align-middle mr-1"></i><b>Always Online</b></span>
                         @else
