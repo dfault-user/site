@@ -241,7 +241,7 @@ Route::get('/server/verifyuserfe/{token}', [App\Http\Controllers\ClientControlle
 Route::get('/negotiate', [App\Http\Controllers\ClientController::class, 'negotiate'])->name('client.negotiate');
 
 // 2016 routes requested by jackd, currently static, possibly make non-static later
-Route::get('/currency/balance', [App\Http\Controllers\ClientController::class, 'getBalance']);
+
 Route::any('//game/players/{id}', [App\Http\Controllers\ClientController::class, 'getChatFilter'])->name('client.getChatFilter');
 Route::any('/moderation/filtertext', [App\Http\Controllers\ClientController::class, 'getFilteredText'])->name('client.getFilteredText');
 Route::post('/Universes/validate-place-join', [App\Http\Controllers\ClientController::class, 'validatePlaceJoin']);
