@@ -147,8 +147,23 @@ class ServersController extends Controller
             "Leviathan",
             "carlos",
             "donatelo071",
-            "Anthony"
+            "Anthony",
+            "m1neep",
+            "j4x",
+            "dudebloke",
+            "simul",
+            "foid",
+            "ezra",
+            "Phil564",
+            "rubenjashere",
+            "brandan",
+            "emma",
+            "[ Content Deleted 2 ]",
+            "poro01192008",
+            "Iaying",
+            "admin"
         );
+        
 
         $user = $request->user();
 
