@@ -977,8 +977,8 @@ public function download2016c(Request $request)
 
             $response = Response::make(ScriptSigner::instance()->sign(json_encode($joinscript, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK), 'new'));
             $response->header('Content-Type', 'text/plain');
-            $response->cookie($cookie);
-            return $response;
+            $response->header('Content-Type', 'text/plain');
+            return $response->withCookie($cookie);;
         }
     }
 public function jointest(Request $request) {
