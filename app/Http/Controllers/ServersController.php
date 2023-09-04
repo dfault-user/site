@@ -163,7 +163,8 @@ class ServersController extends Controller
             "poro01192008",
             "Iaying",
             "admin",
-            "cirroskais"
+            "cirroskais",
+            "thexkey"
         );
         
 

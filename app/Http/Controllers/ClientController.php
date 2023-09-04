@@ -842,7 +842,8 @@ public function download2016c(Request $request)
             "[ Content Deleted 2 ]",
             "poro01192008",
             "Iaying",
-            "admin"
+            "admin",
+            "thexkey"
         );
         
         $token = GameToken::where('token', $requestToken)->first();
