@@ -487,13 +487,22 @@ class CatalogController extends Controller
         $parsedData = [];
     
         parse_str($postBody, $parsedData);
-
+    
         $productId = $parsedData['productId'];
-
+    
         $item = Item::findOrFail($productId);
-
-        $token->user->buyItem($item);
+    
+        $saleId = $token->user->buyItem($item);
+    
+        $response = [
+            "success" => true,
+            "receipt" => $saleId,
+            "playerId" => $token->user->id
+        ];
+    
+        return response()->json($response);
     }
+    
     
 	
 	public function sell(Request $request, $id)
