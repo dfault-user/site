@@ -1456,9 +1456,11 @@ public function jointest(Request $request) {
     
     function getBalance(Request $request)
     {
+        $token = GameToken::where('token', $request->cookie('auth_token'))->first();
+
         $result = json_encode(
             array(
-                "robux" => $request->user()->money,
+                "robux" => $token->user->money,
                 "tickets" => 0
             )
         );
