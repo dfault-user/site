@@ -226,7 +226,7 @@ public function download2016c(Request $request)
         $token->token = $tokenString;
         $token->save();
 
-        return $tokenString;
+        return $tokenString . "?session=". Cookie::get("kapish_session");
     }
 
 
