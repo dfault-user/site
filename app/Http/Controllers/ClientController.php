@@ -1583,7 +1583,7 @@ function getProductInfo(Request $request) {
             "PriceInTickets" => 0,
             "Sales" => $item->sales,
             "IsNew" => false,
-            "IsForSale" => ($item->onsale == 1) ? true : false,
+            "IsForSale" => (bool)$item->onsale,
             "IsPublicDomain" => false,
             "IsLimited" => ($item->is_limited == 1) ? true : false,
             "IsLimitedUnique" => ($item->is_limitedu == 1) ? true : false,
