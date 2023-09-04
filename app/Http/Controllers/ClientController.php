@@ -1478,7 +1478,7 @@ public function jointest(Request $request) {
             ->where('item_id', number_format($assetId))
             ->exists();
     
-        return $ownership ? "true" : "false";
+        return $ownership;
     }
     
 
