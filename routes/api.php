@@ -19,4 +19,4 @@ Route::get('/thumbnail', [Controllers\CdnController::class, 'thumbnail']);
 Route::get('/render', [Controllers\CdnController::class, 'render']);
 Route::get('/ownership/hasAsset/', [App\Http\Controllers\ClientController::class, 'getAssetOwnership']);
 Route::get('/currency/balance', [App\Http\Controllers\ClientController::class, 'getBalanceApiVersion']);
-Route::get('/marketplace/purchase', [App\Http\Controllers\CatalogController::class, 'purchaseItemFromGame']);
+Route::post('/marketplace/purchase', [App\Http\Controllers\CatalogController::class, 'purchaseItemFromGame']);
