@@ -87,7 +87,6 @@
                                     @else
 <a id="join-server-{{ $server->uuid }}" onclick="tadah.joinServer('{{ $server->uuid }}', '{{ $server->version }}')" class="btn btn-block py-3 btn-success btn-lg"><i class="fas fa-play"></i></a>
                                     @endif
-                                    <a id="join-server-{{ $server->uuid }}" onclick="tadah.joinServer('{{ $server->uuid }}', '{{ $server->version }}')" class="btn btn-block py-3 btn-success btn-lg"><i class="fas fa-play"></i></a>
                                     @else
                                 <a id="join-server-{{ $server->uuid }}" onclick="tadah.joinServer('{{ $server->uuid }}', '{{ $server->version }}')" class="btn btn-block py-3 btn-success btn-lg @if (!Cache::has('server_online' . $server->id)) disabled @elseif (sizeof(Cache::get('server_online' . $server->id, 0)) >= $server->maxplayers)) disabled @endif"><i class="fas fa-play"></i></a>
                                 @endif
