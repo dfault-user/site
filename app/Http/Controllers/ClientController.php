@@ -987,7 +987,8 @@ public function download2016c(Request $request)
 
             $joinscript['CharacterAppearance'] = 'https://kapish.fun/Asset/CharacterFetch.ashx?userId=' . $joinscript['UserId'];
             $joinscript['characterAppearanceId'] = $joinscript['UserId'];
-
+            
+            $token->server->update(['visits' => $token->server->visits + 1]);
             $token->generated = true;
             $token->save();
             $cookie = Cookie::make('auth_token', $requestToken, 60);
@@ -1000,49 +1001,7 @@ public function download2016c(Request $request)
         }
     }
 public function jointest(Request $request) {
-	        $time = strval(time());
-            $joinscript = [
-                'ClientPort' => 0,
-                'MachineAddress' => "127.0.0.1",
-                'ServerPort' => 64210,
-                'PingUrl' => 'http://api.kapish.fun/ping',
-                'PingInterval' => 120,
-                'UserName' => "stan",
-                'SeleniumTestMode' => false,
-                'UserId' => 1,
-                'SuperSafeChat' => false, 
-                '' => "",
-                'GameId' => Str::uuid()->toString(),
-                'PlaceId' => intval(1),
-                'BaseUrl' => 'http://www.kapish.fun/',
-                'ChatStyle' => "Classic",
-                'VendorId' => 0,
-                'ScreenshotInfo' => '',
-                'VideoInfo' => '',
-                'CreatorId' => 0,
-                'CreatorTypeEnum' => 'User',
-                'MembershipType' => 'None',
-                'AccountAge' => 0,
-                'CookieStoreFirstTimePlayKey' => 'rbx_evt_ftp',
-                'CookieStoreFiveMinutePlayKey' => 'rbx_evt_fmp',
-                'CookieStoreEnabled' => true,
-                'IsRobloxPlace' => true, // $request->trust ?? -- what the hell does this mean
-                'GenerateTeleportJoin' => false,
-                'InUnknownOrUnder13' => false,
-                'SessionId' => Str::uuid()->toString() . '|' . Str::uuid()->toString() . '|0|' . $request->ip ?? 'localhost' . '|0|2022-01-01T24:00:00.0000000Z|0|null|null|0|0|0',
-                'DataCenterId' => 0,
-                'UniverseId' => 0,
-                'BrowserTrackerId' => 0,
-                'UsePortraitMode' => false,
-                'FollowUserId' => 0
-            ];
-
-            $joinscript['CharacterAppearance'] = 'https://kapish.fun/Asset/CharacterFetch.ashx?userId=' . $joinscript['UserId'];
-            $joinscript['characterAppearanceId'] = $joinscript['UserId'];
-
-            $response = Response::make(ScriptSigner::instance()->sign(json_encode($joinscript, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK), 'new'));
-            $response->header('Content-Type', 'text/plain');
-            return $response;
+            return "disabled";
     }
     public function newjoin(Request $request, $requestToken) // for 2013 and above
     {
