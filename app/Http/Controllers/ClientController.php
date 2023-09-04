@@ -894,7 +894,7 @@ public function download2016c(Request $request)
                     $matchingServerId = false;
             
                     foreach ($runningGames as $gameId) {
-                        if ($gameId === $token->server->id) {
+                        if (intval($gameId) === intval($token->server->id)) {
                             $matchingServerId = true;
                             break;
                         }
