@@ -925,6 +925,19 @@ public function download2016c(Request $request)
         } else {
             $ChatType = ["None", "Classic", "ClassicAndBubble"];
             $port = DB::table('ports')->where('id', $token->server->id)->value('port');
+            if ($port) {
+                $socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+                $isListening = @socket_connect($socket, '127.0.0.1', $port);
+                socket_close($socket);
+            
+                if ($isListening) {
+
+                } else {
+                    DB::table('ports')->where('id', $token->server->id)->delete();
+                    $port = null;
+                }
+            }
+            
             if (!$port) {
                 $r = $this->getRandomUnusedPort($token->server->id);
                 $arbiterkey = preg_replace("/[^a-zA-Z0-9]+/", "", env('RCC_KEY'));
@@ -1565,7 +1578,7 @@ function getProductInfo(Request $request) {
         if ($item->isLimited() || $item->isLimitedUnique() || $item->onsale == 0) {
             $onsale = false;
         }
-        
+
         $result = array(
             "TargetId" => 0,
             "ProductType" => null,
