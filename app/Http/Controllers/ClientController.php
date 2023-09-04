@@ -20,6 +20,9 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
+
+
 use Illuminate\Support\Facades\Http;
 use Zip;
 class ClientController extends Controller
