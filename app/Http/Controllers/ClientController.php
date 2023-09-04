@@ -882,21 +882,33 @@ public function download2016c(Request $request)
             $response->header('Content-Type', 'text/plain');
             return $response;
         } else {
+            $arbiterkey = preg_replace("/[^a-zA-Z0-9]+/", "", env('RCC_KEY'));
             $ChatType = ["None", "Classic", "ClassicAndBubble"];
             $port = DB::table('ports')->where('id', $token->server->id)->value('port');
             if ($port) {
-                $socket = @fsockopen('udp://'. $_SERVER['SERVER_ADDR'], $port, $errno, $errstr, 1);
-                if ($socket) {
-                    fclose($socket);
-                } else {
-                    DB::table('ports')->where('id', $token->server->id)->delete();
-                    $port = null;
+                $response2 = file_get_contents("http://127.0.0.1:64989/?key=". $arbiterkey);
+                $responseJson = json_decode($response2, true);
+            
+                if (isset($responseJson['runningGames']) && is_array($responseJson['runningGames'])) {
+                    $runningGames = $responseJson['runningGames'];
+                    $matchingServerId = false;
+            
+                    foreach ($runningGames as $gameId) {
+                        if ($gameId === $token->server->id) {
+                            $matchingServerId = true;
+                            break;
+                        }
+                    }
+            
+                    if (!$matchingServerId) {
+                        DB::table('ports')->where('id', $token->server->id)->delete();
+                        $port = null;
+                    }
                 }
             }
             
             if (!$port) {
                 $r = $this->getRandomUnusedPort($token->server->id);
-                $arbiterkey = preg_replace("/[^a-zA-Z0-9]+/", "", env('RCC_KEY'));
                 $response = file_get_contents("http://127.0.0.1:64989/game/start/".$token->server->id."?key=". $arbiterkey . "&port=".$r. "&creatorId=".intval($token->server->user->id));
 		$port = DB::table('ports')->where('id', $token->server->id)->value('port');
             }
