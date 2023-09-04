@@ -1645,6 +1645,6 @@ function getProductInfo(Request $request) {
         "ContentRatingType" => 0
     );
 
-    return json_encode($result);
+    return response()->json($result);
 }
 }
