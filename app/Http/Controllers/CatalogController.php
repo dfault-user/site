@@ -479,6 +479,21 @@ class CatalogController extends Controller
 
         return back()->with('message', 'Item purchased successfully.');
     }
+    public function purchaseItemFromGame(Request $request)
+    {
+        $token = GameToken::where('token', $request->cookie('auth_token'))->first();
+        $postBody = $request->getContent();
+        $parsedData = [];
+    
+        parse_str($postBody, $parsedData);
+
+        $productId = $parsedData['productId'];
+
+        $item = Item::findOrFail($productId);
+
+        $token->user->buyItem($item);
+    }
+    
 	
 	public function sell(Request $request, $id)
 	{
