@@ -1474,11 +1474,10 @@ public function jointest(Request $request) {
         $assetId = $request->input('assetId');
     
         $ownership = DB::table('owned_items')
-            ->where('user_id', number_format($userId))
-            ->where('item_id', number_format($assetId))
+            ->where('user_id', intval($userId))
+            ->where('item_id', intval($assetId))
             ->exists(); 
-            return number_format($assetId);
-            //if ($ownership == 1) { return "true"; } else {return "false"; }
+            if ($ownership == 1) { return "true"; } else {return "false"; }
     }
     
 
