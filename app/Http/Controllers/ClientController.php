@@ -1568,11 +1568,11 @@ function getProductInfo(Request $request) {
             "ProductType" => null,
             "AssetId" => $assetId,
             "ProductId" => $assetId,
-            "Name" => htmlspecialchars($item->name),
-            "Description" => htmlspecialchars($item->description),
+            "Name" => $item->name,
+            "Description" => $item->description,
             "Creator" => array(
                 "Id" => $creator->id,
-                "Name" => htmlspecialchars($creator->username),
+                "Name" => $creator->username,
                 "CreatorType" => "User",
                 "CreatorTargetId" => 1
             ),
@@ -1591,7 +1591,7 @@ function getProductInfo(Request $request) {
             "MinimumMembershipLevel" => 0,
             "ContentRatingType" => 0
         );
-        return json_encode($result);
+        return response()->json($result);
     }
     $server = Server::where('id', $assetId)->first();
     $creator = User::where('id', $server->creator)->first();
