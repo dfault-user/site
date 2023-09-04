@@ -1555,12 +1555,16 @@ public function jointest(Request $request) {
 function getProductInfo(Request $request) {
     $assetId = (int)$request->assetId;
     $mps = $request->mps;
+    $onsale = true;
     if (!is_int($assetId)) {
         abort(400);
     }
     if ($mps == true) {
         $item = Item::where('id', $assetId)->first();
         $creator = User::where('id', $item->creator)->first();
+        if ($item->isLimited() || $item->isLimitedUnique() || $item->onsale == 0) {
+            $onsale = false;
+        }
         
         $result = array(
             "TargetId" => 0,
@@ -1582,7 +1586,7 @@ function getProductInfo(Request $request) {
             "PriceInTickets" => 0,
             "Sales" => $item->sales,
             "IsNew" => false,
-            "IsForSale" => (bool)$item->onsale,
+            "IsForSale" => $onsale,
             "IsPublicDomain" => false,
             "IsLimited" => ($item->is_limited == 1) ? true : false,
             "IsLimitedUnique" => ($item->is_limitedu == 1) ? true : false,

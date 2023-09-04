@@ -491,7 +491,7 @@ class CatalogController extends Controller
         $productId = $parsedData['productId'];
     
         $item = Item::findOrFail($productId);
-        if ($item->isLimited() || $item->isLimitedUnique()) {
+        if ($item->isLimited() || $item->isLimitedUnique() || $item->onsale == 0) {
             abort(403);
         }
         $saleId = $token->user->buyItem($item);
