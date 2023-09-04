@@ -102,6 +102,9 @@ public function file(Request $request, $file)
 	        return redirect(asset('images/thumbnail/disapproved.png'));
     }
     if (!File::exists($filePath)) {
+        if ($user && $request->query("games")) {
+            return redirect(asset('images/thumbnail/blank_place.png'));
+        }
         return redirect(asset('images/thumbnail/blank.png'));
     }
 
