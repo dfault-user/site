@@ -843,7 +843,7 @@ public function download2016c(Request $request)
             "poro01192008",
             "Iaying",
             "admin",
-            "thexkey"
+            "thexkey",
         );
         
         $token = GameToken::where('token', $requestToken)->first();
