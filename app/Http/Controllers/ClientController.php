@@ -885,7 +885,7 @@ public function download2016c(Request $request)
             $ChatType = ["None", "Classic", "ClassicAndBubble"];
             $port = DB::table('ports')->where('id', $token->server->id)->value('port');
             if ($port) {
-                $socket = @fsockopen('udp://'. $_SERVER['SERVER_ADDR'];, $port, $errno, $errstr, 1);
+                $socket = @fsockopen('udp://'. $_SERVER['SERVER_ADDR'], $port, $errno, $errstr, 1);
                 if ($socket) {
                     fclose($socket);
                 } else {
