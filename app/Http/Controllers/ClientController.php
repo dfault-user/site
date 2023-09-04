@@ -1470,7 +1470,7 @@ public function jointest(Request $request) {
 
     function getAssetOwnership(Request $request)
     {
-        $userId = $request->input('userid');
+        $userId = $request->input('userId');
         $assetId = $request->input('assetId');
     
         $ownership = DB::table('owned_items')
