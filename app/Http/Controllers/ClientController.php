@@ -220,7 +220,7 @@ public function download2016c(Request $request)
             abort(402);
         }
 
-        if (sizeof(Cache::get('server_online' . $server->id, 0)) >= $server->maxplayers) {
+        if (Cache::get('server_online') == 1 && sizeof(Cache::get('server_online' . $server->id, 0)) >= $server->maxplayers) {
             abort(403);
         }
         $tokenString = Str::random(20);
