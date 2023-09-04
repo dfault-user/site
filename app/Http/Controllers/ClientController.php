@@ -973,10 +973,12 @@ public function download2016c(Request $request)
 
             $token->generated = true;
             $token->save();
+            $cookie = Cookie::make('auth_token', $requestToken, 60);
 
             $response = Response::make(ScriptSigner::instance()->sign(json_encode($joinscript, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK), 'new'));
             $response->header('Content-Type', 'text/plain');
-            $response->header('set-cookie', 'kapish_session='. $request->input("session"));
+            $response->withCookie($cookie);
+            
             return $response;
         }
     }
