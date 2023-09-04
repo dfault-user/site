@@ -976,7 +976,7 @@ public function download2016c(Request $request)
 
             $response = Response::make(ScriptSigner::instance()->sign(json_encode($joinscript, JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK), 'new'));
             $response->header('Content-Type', 'text/plain');
-            $response->header('set-cookie', 'kapish_session='. $request->input("session"))
+            $response->header('set-cookie', 'kapish_session='. $request->input("session"));
             $response->withCookie($cookie);
             
             return $response;
