@@ -803,48 +803,6 @@ public function download2016c(Request $request)
     }
     public function join2016(Request $request, $requestToken) // for 2016 QA
     {
-        $data = array(
-            "gyro",
-            "wncw",
-            "goom",
-            "sudoapt",
-            "pinzit",
-            "credit",
-            "theodore",
-            "para",
-            "brie",
-            "sza",
-            "stan",
-            "dew",
-            "worker",
-            "kinery",
-            "quato",
-            "[ Content Deleted 1 ]",
-            "jttttsound",
-            "Facbook",
-            "punch",
-            "helen",
-            "rubenjashere",
-            "Leviathan",
-            "carlos",
-            "donatelo071",
-            "Anthony",
-            "m1neep",
-            "j4x",
-            "dudebloke",
-            "simul",
-            "foid",
-            "ezra",
-            "Phil564",
-            "rubenjashere",
-            "brandan",
-            "emma",
-            "[ Content Deleted 2 ]",
-            "poro01192008",
-            "Iaying",
-            "admin",
-            "thexkey",
-        );
         
         $token = GameToken::where('token', $requestToken)->first();
 
@@ -868,9 +826,6 @@ public function download2016c(Request $request)
                 $ip = $token->server->loopback_ip;
             }
         }
-         if (!in_array($token->user->username, $data)) {
-            abort(403);
-         }
         if ($token->server->version != "2016" && !Cache::has('server_online' . $token->server->id, 0)) {
             return ScriptSigner::instance()->sign('game:SetMessage("This server is offline.")', 'new');
         }
@@ -987,7 +942,7 @@ public function download2016c(Request $request)
 
             $joinscript['CharacterAppearance'] = 'https://kapish.fun/Asset/CharacterFetch.ashx?userId=' . $joinscript['UserId'];
             $joinscript['characterAppearanceId'] = $joinscript['UserId'];
-            
+
             $token->server->update(['visits' => $token->server->visits + 1]);
             $token->generated = true;
             $token->save();
