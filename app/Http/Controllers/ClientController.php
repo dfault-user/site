@@ -220,6 +220,9 @@ public function download2016c(Request $request)
             abort(402);
         }
 
+        if (sizeof(Cache::get('server_online' . $token->server->id, 0)) >= $token->server->maxplayers) {
+            abort(403);
+        }
         $tokenString = Str::random(20);
         $token = new GameToken;
         if ($request->user()) {
