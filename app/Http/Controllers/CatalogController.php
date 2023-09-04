@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Response;
 use App\Rules\AssetTypesRule;
 use App\Rules\MeshValidator;
 use App\Rules\ModelValidator;
+use App\Models\GameToken;
 use App\Jobs\RenderJob;
 use App\Http\Cdn\Render;
 use App\Http\Cdn\Thumbnail;
